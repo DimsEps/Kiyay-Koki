@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import ProductCard from "../ProductCard";
+import React from "react";
+import ProductCard from "./ProductCard";
 import "../../App.css";
 
 const ProductManagement = ({ product }) => {
   return (
-    <div className="cards">
+    <div className="cards-admin">
       {product.map((product) => {
         return (
           <ProductCard
