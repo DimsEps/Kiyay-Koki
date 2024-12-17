@@ -66,9 +66,8 @@ const LargeField = ({
   );
 };
 
-const ImageField = () => {
+const ImageField = ({ image, setImage }) => {
   const ref = useRef();
-  const [image, setImage] = useState(null);
 
   const handleFileSelect = (event) => {
     const selectedFile = event.target.files[0];
@@ -94,7 +93,8 @@ const ImageField = () => {
         justifyContent: "center",
         alignItems: "center",
         border: "1px solid black",
-        cursor: "pointer"
+        cursor: "pointer",
+        userSelect: "none"
       }}
       onClick={() => {
         !image ? ref.current.click() : setImage(null)
@@ -114,7 +114,7 @@ const ImageField = () => {
               width: "24px"
             }} />
           </div>
-          <div>Upload</div>
+          <div>Upload Foto</div>
         </> : <img
           src={image} 
           style={{ height: "100%", width: "100%" }}
@@ -138,13 +138,19 @@ const AddProduct = () => {
   const [weight, setWeight] = useState("");
   const [volume, setVolume] = useState("");
   const [description, setDescription] = useState("");
+  const [image1, setImage1] = useState(null);
+  const [image2, setImage2] = useState(null);
+  const [image3, setImage3] = useState(null);
+  const [image4, setImage4] = useState(null);
+  
   return (
     <AdminLayout content={
       <div className="main-bg" style={{
          paddingTop: "8px",
          paddingRight: "64px",
          paddingLeft: "64px",
-         boxSizing: "border-box"
+         boxSizing: "border-box",
+         position: "relative"
       }}>
          <div style={{
             display: "flex",
@@ -156,8 +162,8 @@ const AddProduct = () => {
             justifyContent: "space-between"
           }}>
               <div style={{
-                display: "flex",
-                flexDirection: "column",
+                display: "grid",
+                gridTemplateColumns: "repeat(2, 1fr)",
                 gap: "8px"
               }}>
                 <Field label={"Nama Produk"} value={productName} setValue={setProductName} />
@@ -227,17 +233,30 @@ const AddProduct = () => {
           </div>
           <div style={{
             display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "16px"
+            gridTemplateColumns: "repeat(4, 1fr)"
           }}>
-            <ImageField />
-            <ImageField />
-            <ImageField />
-            <ImageField />
+            <ImageField image={image1} setImage={setImage1} />
+            <ImageField image={image2} setImage={setImage2} />
+            <ImageField image={image3} setImage={setImage3} />
+            <ImageField image={image4} setImage={setImage4} />
           </div>
          </div>
-         <div>
-
+         <div style={{
+          display: "flex",
+          gap: "32px",
+          width: "400px",
+          position: "fixed",
+          right: 0,
+          bottom: 0,
+          marginRight: "64px",
+          marginBottom: "32px"
+         }}>
+            <Button style={{ width: "50%", backgroundColor: "red", border: "none" }}>
+              Batal
+            </Button>
+            <Button style={{ width: "50%", backgroundColor: "#408A7E", border: "none" }}>
+              Simpan
+            </Button>
          </div>
       </div>
     } />
