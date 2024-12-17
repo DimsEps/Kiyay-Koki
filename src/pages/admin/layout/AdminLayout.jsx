@@ -9,10 +9,11 @@ const AdminLayout = ({ content }) => {
     }}>
       <SideBar />
       <div style={{
-        minHeight: "100vh",
+        height: "100%",
         width: "100%",
         overflowX: "hidden",
-        paddingTop: "70px"
+        paddingTop: "70px",
+        boxSizing: "border-box"
       }}>
         {content}
       </div>

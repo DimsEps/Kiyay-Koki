@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navigasi from "./components/Navigasi";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -12,9 +12,9 @@ import OtpPage from "./pages/OtpPage";
 import SearchResult from "./pages/SearchResult";
 import PrivateRoute from "./components/PrivateRoute";
 import AdminPage from "./pages/admin/AdminPage";
+import AddProduct from "./pages/admin/AddProduct";
 
 function App() {
-  // const pathname = useLocation().pathname
   return (
     <Router>
       <Navigasi />
@@ -34,6 +34,10 @@ function App() {
         <Route
           path="/admin"
           element={<PrivateRoute element={<AdminPage />} />}
+        />
+        <Route 
+          path="/admin/addProduct"
+          element={<PrivateRoute element={<AddProduct />} />}
         />
       </Routes>
     </Router>
