@@ -32,6 +32,7 @@ const AdminPage = () => {
               fontWeight: "bold",
               padding: "10px 20px",
             }}
+            onClick={() => navigate("/admin/addProduct/")}
           >
             + Tambah Produk
           </Button>
