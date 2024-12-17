@@ -1,5 +1,4 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navigasi from "./components/Navigasi";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -15,6 +14,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import AdminPage from "./pages/admin/AdminPage";
 
 function App() {
+  // const pathname = useLocation().pathname
   return (
     <Router>
       <Navigasi />
