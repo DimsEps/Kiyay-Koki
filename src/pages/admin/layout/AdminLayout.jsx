@@ -4,12 +4,15 @@ const AdminLayout = ({ content }) => {
   return (
     <div style={{
       height: "100vh",
-      display: "flex"
+      display: "flex",
+      width: "100vw"
     }}>
       <SideBar />
       <div style={{
-        height: "100%",
-        marginLeft: "240px"
+        minHeight: "100vh",
+        width: "100%",
+        overflowX: "hidden",
+        paddingTop: "70px"
       }}>
         {content}
       </div>

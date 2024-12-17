@@ -13,7 +13,7 @@ const SideBar = () => {
     <div
       style={{
         backgroundColor: "#e0f0ff",
-        width: "240px",
+        minWidth: "240px",
         padding: "20px",
         minHeight: "100vh",
         boxSizing: "border-box",
