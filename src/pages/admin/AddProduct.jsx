@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import AdminLayout from "./layout/AdminLayout";
 import { useRef, useState } from "react";
 import { ReactComponent as Add } from "../../assets/images/icon/add.svg";
+import { Button, Dropdown } from "react-bootstrap";
 
 const Field = ({ 
   label, 
@@ -35,7 +36,7 @@ const LargeField = ({
   label,
   placeholder, 
   value, 
-  setValue,
+  setValue
 }) => {
   return (
     <div style={{
@@ -46,7 +47,8 @@ const LargeField = ({
       backgroundColor: "white",
       border: "1px solid black",
       padding: "8px",
-      boxSizing: "border-box"
+      boxSizing: "border-box",
+      height: "100%"
     }}>
       <div style={{ fontWeight: "bold", fontSize: "20px" }}>{label}</div>
       <textarea 
@@ -113,7 +115,7 @@ const ImageField = () => {
             }} />
           </div>
           <div>Upload</div>
-        </> : <img 
+        </> : <img
           src={image} 
           style={{ height: "100%", width: "100%" }}
           onClick={() => { setImage(null) }} 
@@ -124,7 +126,8 @@ const ImageField = () => {
 };
 
 const AddProduct = () => {
-  const [category, setCategory] = useState("ikan");
+  const [type, setType] = useState("Ikan");
+  const [category, setCategory] = useState("Tidak Terdaftar");
   const [productName, setProductName] = useState("");
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
@@ -164,7 +167,7 @@ const AddProduct = () => {
 
                 {/* Ikan */}
                 {
-                  category === "ikan" ? <>
+                  type === "Ikan" ? <>
                     <Field label={"Warna"} value={color} setValue={setColor} />
                     <Field label={"Ukuran"} value={size} setValue={setSize} />
                     <Field label={"Jenis"} value={kind} setValue={setKind} />
@@ -173,33 +176,68 @@ const AddProduct = () => {
 
                 {/* Pakan */}
                 {
-                  category === "pakan" ? <Field label={"Berat"} value={weight} setValue={setWeight} />
+                  type === "Pakan" ? <Field label={"Berat"} value={weight} setValue={setWeight} />
                   : <></>
                 }
 
                 {/* Aquarium */}
                 {
-                  category === "aquarium" ? <Field label={"Volume"} value={volume} setValue={setVolume} />
+                  type === "Aquarium" ? <Field label={"Volume"} value={volume} setValue={setVolume} />
                   : <></>
                 }
             </div>
-              <LargeField 
-                label={"Deskripsi"}
-                placeholder={"Deskripsi produk"} 
-                value={description} 
-                setValue={setDescription} 
-              />
+            <div style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "16px",
+              width: "40%"
+            }}>
+              <div style={{ height: "100%" }}>
+                <LargeField 
+                  label={"Deskripsi"}
+                  placeholder={"Deskripsi produk"} 
+                  value={description} 
+                  setValue={setDescription} 
+                />
+              </div>
+              <div style={{ display: "flex", gap: "16px" }}>
+                <Dropdown 
+                  onSelect={e => { setType(e) }}
+                  variant="secondary"
+                >
+                  <Dropdown.Toggle variant="secondary">{type}</Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item eventKey={"Ikan"}>Ikan</Dropdown.Item>
+                    <Dropdown.Item eventKey={"Pakan"}>Pakan</Dropdown.Item>
+                    <Dropdown.Item eventKey={"Aquarium"}>Aquarium</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+                <Dropdown 
+                  onSelect={e => { setCategory(e) }}
+                  variant="secondary"
+                >
+                  <Dropdown.Toggle variant="secondary">{category}</Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item eventKey={"Tidak Terdaftar"}>Tidak Terdaftar</Dropdown.Item>
+                    <Dropdown.Item eventKey={"Terdaftar"}>Terdaftar</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div>
+            </div>
           </div>
           <div style={{
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
             gap: "16px"
           }}>
-            <ImageField></ImageField>
-            <ImageField></ImageField>
-            <ImageField></ImageField>
-            <ImageField></ImageField>
+            <ImageField />
+            <ImageField />
+            <ImageField />
+            <ImageField />
           </div>
+         </div>
+         <div>
+
          </div>
       </div>
     } />
