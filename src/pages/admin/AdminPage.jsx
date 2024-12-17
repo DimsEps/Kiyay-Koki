@@ -18,6 +18,7 @@ const AdminPage = () => {
               justifyContent: "space-between",
               marginBottom: "20px",
             }}
+            onClick={() => navigate("/admin/addProduct/")}
           >
             <Button
               variant="secondary"

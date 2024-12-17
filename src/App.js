@@ -11,11 +11,11 @@ import OtpPage from "./pages/OtpPage";
 import SearchResult from "./pages/SearchResult";
 import PrivateRoute from "./components/PrivateRoute";
 import AdminPage from "./pages/admin/AdminPage";
-import AddProduct from "./pages/admin/AddProduct";
+import AddProduct from "./pages/admin/AddProducts";
 import AdminContact from "./pages/admin/AdminContact";
 import AdminConfiguration from "./pages/admin/AdminConfiguration";
 import ApikeyPage from "./pages/admin/ApikeyPage";
-import DetailContact from "./pages/admin/DetailContact";
+import DetailContact from "./pages/admin/DetailContacts";
 
 function App() {
   return (
