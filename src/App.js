@@ -1,5 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import Navigasi from "./components/Navigasi";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Contact from "./pages/Contact";
@@ -12,12 +11,15 @@ import OtpPage from "./pages/OtpPage";
 import SearchResult from "./pages/SearchResult";
 import PrivateRoute from "./components/PrivateRoute";
 import AdminPage from "./pages/admin/AdminPage";
+import AddProduct from "./pages/admin/AddProduct";
+import AdminContact from "./pages/admin/AdminContact";
+import AdminConfiguration from "./pages/admin/AdminConfiguration";
+import ApikeyPage from "./pages/admin/ApikeyPage";
+import DetailContact from "./pages/admin/DetailContact";
 
 function App() {
-  // const pathname = useLocation().pathname
   return (
     <Router>
-      <Navigasi />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/OtpPage" element={<OtpPage />} />
@@ -34,6 +36,26 @@ function App() {
         <Route
           path="/admin"
           element={<PrivateRoute element={<AdminPage />} />}
+        />
+        <Route
+          path="/admin/addProduct"
+          element={<PrivateRoute element={<AddProduct />} />}
+        />
+        <Route
+          path="/admin/AdminContact"
+          element={<PrivateRoute element={<AdminContact />} />}
+        />
+        <Route
+          path="/admin/AdminContact/detail/:id"
+          element={<PrivateRoute element={<DetailContact />} />}
+        />
+        <Route
+          path="/admin/AdminConfiguration"
+          element={<PrivateRoute element={<AdminConfiguration />} />}
+        />
+        <Route
+          path="/admin/AdminConfiguration/ApikeyPage"
+          element={<PrivateRoute element={<ApikeyPage />} />}
         />
       </Routes>
     </Router>

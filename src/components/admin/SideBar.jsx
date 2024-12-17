@@ -50,7 +50,7 @@ const SideBar = () => {
         </li>
         <li>
           <Link
-            to="/admin"
+            to="/admin/AdminContact"
             style={{
               display: "block",
               padding: "10px",
@@ -66,7 +66,7 @@ const SideBar = () => {
         </li>
         <li>
           <Link
-            to="/admin/config"
+            to="/admin/AdminConfiguration"
             style={{
               display: "block",
               padding: "10px",
