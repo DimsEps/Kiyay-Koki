@@ -17,7 +17,7 @@ const ProductCard = (props) => {
 
   return (
     <Link
-      to={`/product/${props.id}`}
+      to={`/editProduct/${props.id}`}
       style={{ textDecoration: "none", color: "inherit" }}
     >
       <div className="ProductCard">

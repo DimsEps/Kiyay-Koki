@@ -1,9 +1,9 @@
 import React from "react";
 import { Button, Dropdown } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { product } from "../../data/data";
-import ProductManagement from "../../components/admin/ProductManagement";
-import AdminLayout from "./layout/AdminLayout";
+import { product } from "../../../data/data";
+import ProductManagement from "../../../components/admin/ProductManagement";
+import AdminLayout from "../layout/AdminLayout";
 
 const AdminPage = () => {
   const navigate = useNavigate();
@@ -18,7 +18,6 @@ const AdminPage = () => {
               justifyContent: "space-between",
               marginBottom: "20px",
             }}
-            onClick={() => navigate("/admin/addProduct/")}
           >
             <Button
               variant="secondary"

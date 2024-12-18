@@ -10,12 +10,16 @@ import Ulasan from "./pages/UlasanProduct";
 import OtpPage from "./pages/OtpPage";
 import SearchResult from "./pages/SearchResult";
 import PrivateRoute from "./components/PrivateRoute";
-import AdminPage from "./pages/admin/AdminPage";
-import AddProduct from "./pages/admin/AddProducts";
-import AdminContact from "./pages/admin/AdminContact";
+import AdminPage from "./pages/admin/adminProduct/AdminPage";
+import AddProduct from "./pages/admin/adminProduct/AddProducts";
+import EditProduct from "./pages/admin/adminProduct/EditProducts";
+import AdminContact from "./pages/admin/adminContact/AdminContact";
 import AdminConfiguration from "./pages/admin/AdminConfiguration";
 import ApikeyPage from "./pages/admin/ApikeyPage";
-import DetailContact from "./pages/admin/DetailContacts";
+import DetailContact from "./pages/admin/adminContact/DetailContacts";
+import DetailKeranjang from "./pages/admin/adminContact/DetailKeranjang";
+import DetailUlasan from "./pages/admin/adminContact/DetailUlasan";
+import DetailAlamat from "./pages/admin/adminContact/DetailAlamat";
 
 function App() {
   return (
@@ -38,6 +42,10 @@ function App() {
           element={<PrivateRoute element={<AdminPage />} />}
         />
         <Route
+          path="/editProduct/:id"
+          element={<PrivateRoute element={<EditProduct />} />}
+        />
+        <Route
           path="/admin/addProduct"
           element={<PrivateRoute element={<AddProduct />} />}
         />
@@ -48,6 +56,18 @@ function App() {
         <Route
           path="/admin/AdminContact/detail/:id"
           element={<PrivateRoute element={<DetailContact />} />}
+        />
+        <Route
+          path="/admin/AdminContact/detail/:id/keranjang"
+          element={<PrivateRoute element={<DetailKeranjang />} />}
+        />
+        <Route
+          path="/admin/AdminContact/detail/:id/ulasan"
+          element={<PrivateRoute element={<DetailUlasan />} />}
+        />
+        <Route
+          path="/admin/AdminContact/detail/:id/alamat"
+          element={<PrivateRoute element={<DetailAlamat />} />}
         />
         <Route
           path="/admin/AdminConfiguration"

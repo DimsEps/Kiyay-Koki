@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AdminLayout from "./layout/AdminLayout";
+import AdminLayout from "../layout/AdminLayout";
 import { FaTrashAlt } from "react-icons/fa";
-import "../../App.css";
 
-const AdminPage = () => {
+const AdminContact = () => {
   const [data, setData] = useState([
     { id: 1, number: "+628123456", date: "02 Feb 2024" },
     { id: 2, number: "+628554433", date: "27 Nov 2024" },
@@ -79,7 +78,7 @@ const AdminPage = () => {
                 <li
                   key={item.id}
                   onClick={() =>
-                    navigate(`/admin/AdminContact/detail/${data.id}`)
+                    navigate(`/admin/AdminContact/detail/${item.id}`)
                   }
                   className="list-item"
                 >
@@ -101,4 +100,4 @@ const AdminPage = () => {
   );
 };
 
-export default AdminPage;
+export default AdminContact;

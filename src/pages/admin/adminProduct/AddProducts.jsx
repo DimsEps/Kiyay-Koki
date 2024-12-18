@@ -1,6 +1,6 @@
-import AdminLayout from "./layout/AdminLayout";
+import AdminLayout from "../layout/AdminLayout";
 import { useRef, useState } from "react";
-import { ReactComponent as Add } from "../../assets/images/icon/add.svg";
+import { ReactComponent as Add } from "../../../assets/images/icon/add.svg";
 import { Button, Dropdown } from "react-bootstrap";
 
 const Field = ({ label, value, setValue, type = "text" }) => {
